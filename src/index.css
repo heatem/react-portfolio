@@ -83,6 +83,53 @@ ul, .icons, #resume {
 	background-color: #FFD23F;
 }
 
+#cards {
+	text-align: center;
+	padding: 4em;
+}
+
+.cardTitle {
+	margin-left: -2em;
+	height: 3.8em;
+	padding: 0 2em;
+	border-left: 8px solid #1C51DF;
+	color: #1C51DF;
+}
+
+.card h2 {
+	font-size: 1.5em;
+}
+
+.card p {
+	font: 1em;
+	line-height: 1.2em;
+}
+
+.card {
+	display: inline-block;
+	padding: 0.75em 2em;
+	border-radius: 10px;
+	margin: -1em 2em;
+	max-width: 15em;
+	text-align: left;
+	max-height: 30em;
+	background-color: #D8D8D8;
+	border: 1px solid #979797;
+	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+	overflow: hidden;
+}
+
+.card .thumb {
+	max-width: 3em;
+	border-radius: 0.25em;
+}
+
+.card .app-store {
+	max-height: 3em;
+	float: right;
+	margin-top: 0.5em;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
