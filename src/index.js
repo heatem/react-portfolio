@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import firebase from './firebase.js';
 import './index.css';
 
 // Header
@@ -40,7 +41,7 @@ class Card extends React.Component {
 				</div>
 				<p>This simple app displays the current temperature based on your location, the current time, and the current date. Users can enter a focus or goal and check the box when it's met to clear it out and enter another. Focus on ThisDay!</p>
 				<img class="thumb" src="http://heatem.me/thisDay/img/ThisDay_1024.png"></img>
-				<img class="app-store" src="http://heatem.me/thisDay/img/Download_on_the_App_Store_Badge_US-UK_135x40.svg"></img>
+				<img class="appStore" src="http://heatem.me/thisDay/img/Download_on_the_App_Store_Badge_US-UK_135x40.svg"></img>
 			</div>
 		)
 	}
