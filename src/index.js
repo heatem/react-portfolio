@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import firebase from './firebase.js';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import firebase from "./firebase.js";
+import "./index.css";
 
 // Header
 class Heather extends React.Component {
@@ -20,11 +20,23 @@ class Socials extends React.Component {
 	render() {
 		return (
 			<div>
-				<ul class='icons'>
-					<li class='icon' id='linkedIn'><a href="https://www.linkedin.com/in/heatherem/"><i class='fab fa-linkedin-in'></i></a></li>
-					<li class='icon' id='gitHub'><a href="https://github.com/heatem"><i class='fab fa-github'></i></a></li>
-					<li class='icon' id='medium'><a href="https://medium.com/@heatem_81309"><i class='fab fa-medium-m'></i></a></li>
+				<ul className="icons">
+					<li className="icon" id="linkedIn"><a href="https://www.linkedin.com/in/heatherem/"><i class="fab fa-linkedin-in"></i></a></li>
+					<li className="icon" id="gitHub"><a href="https://github.com/heatem"><i class="fab fa-github"></i></a></li>
+					<li className="icon" id="medium"><a href="https://medium.com/@heatem_81309"><i class="fab fa-medium-m"></i></a></li>
 				</ul>
+			</div>
+		)
+	}
+}
+
+class Blurb extends React.Component {
+	render() {
+		return (
+			<div className="blurb">
+				<p>
+					I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community. Check out my <a id="resume" href="#">resume</a>.
+				</p>
 			</div>
 		)
 	}
@@ -33,17 +45,58 @@ class Socials extends React.Component {
 // Cards
 // should have a title, text, room for an icon/image, and optional app store link
 class Card extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			currentProject: "",
+			title: "",
+			description: "",
+			thumb: "",
+			appstore: "",
+			projects: []
+		}
+	}
+
+	componentDidMount() {
+		const projectsRef = firebase.database().ref("projects");
+		projectsRef.on("value", (snapshot) => {
+			let projects = snapshot.val();
+			let newState = [];
+			for (let project in projects) {
+				newState.push({
+					id: project,
+					title: projects[project].title,
+					description: projects[project].description,
+					thumb: projects[project].thumb,
+					appstore: projects[project].appstore
+
+				});
+			}
+			this.setState({
+				projects: newState
+			});
+		});
+	}
+
 	render() {
 		return (
 			<div>
-				<div class="cardTitle">
-					<h2>Say Happy Birthday In...</h2>
-				</div>
-				<p>This simple app displays the current temperature based on your location, the current time, and the current date. Users can enter a focus or goal and check the box when it's met to clear it out and enter another. Focus on ThisDay!</p>
-				<img class="thumb" src="http://heatem.me/thisDay/img/ThisDay_1024.png"></img>
-				<img class="appStore" src="http://heatem.me/thisDay/img/Download_on_the_App_Store_Badge_US-UK_135x40.svg"></img>
+				{this.state.projects.map((project) => {
+					return (
+						<div className="card">
+							<li key={project.id}>
+								<div className="cardTitle">
+									<h2>{project.title}</h2>
+								</div>
+								<p>{project.description}</p>
+								<img className="thumb" src={project.thumb}></img>
+								<img className="app-store" src={project.appstore}></img>
+							</li>
+						</div>
+					);
+				})}
 			</div>
-		)
+		);
 	}
 }
 
@@ -53,18 +106,12 @@ class Card extends React.Component {
 class Cards extends React.Component {
 	render() {
 		return (
-			<div>
-				<div class="card">
+			<div className="cards">
+				<ul>
 					<Card />
-				</div>
-				<div class="card">
-					<Card />
-				</div>
-				<div class="card">
-					<Card />
-				</div>
+				</ul>
 			</div>
-		)
+		);
 	}
 }
 
@@ -73,26 +120,11 @@ class Cards extends React.Component {
 
 // Resume
 // TODO: Add resume
-class Resume extends React.Component {
-	render() {
-		return (
-			<div>
-				<ul>
-					<li id="resume"><a href="www.heatem.me">RESUME</a></li>
-				</ul>
-			</div>
-		)
-	}
-}
 
-// Footer
 class Footer extends React.Component {
 	render() {
 		return (
-			<div>
-				<p>
-				I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community.
-				</p>
+			<div className="footer">
 			</div>
 		)
 	}
@@ -102,20 +134,20 @@ class Footer extends React.Component {
 class Site extends React.Component {
 	render() {
 		return (
-			<div className='site'>
-				<div id='header'>
+			<div className="site">
+				<div id="header">
 					<Heather />
 				</div>
-				<div id='socials'>
+				<div id="socials">
 					<Socials />
+				</div>
+				<div>
+					<Blurb />
 				</div>
 				<div id="cards">
 					<Cards />
 				</div>
 				<div>
-					<Resume />
-				</div>
-				<div id="footer">
 					<Footer />
 				</div>
 			</div>
@@ -125,4 +157,5 @@ class Site extends React.Component {
 
 // ======
 
-ReactDOM.render(<Site />, document.getElementById('root'));
+ReactDOM.render(<Site />, document.getElementById("root"));
+	
