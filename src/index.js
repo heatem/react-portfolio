@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import firebase from "./firebase.js";
 import "./index.css";
+import appStoreIcon from "./assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg";
 
-// Header
 class Heather extends React.Component {
 	render() {
 		return (
@@ -15,15 +15,14 @@ class Heather extends React.Component {
 	}
 }
 
-// Social links: LinkedIn, GitHub, and Medium
 class Socials extends React.Component {
 	render() {
 		return (
 			<div>
 				<ul className="icons">
-					<li className="icon" id="linkedIn"><a href="https://www.linkedin.com/in/heatherem/"><i class="fab fa-linkedin-in"></i></a></li>
-					<li className="icon" id="gitHub"><a href="https://github.com/heatem"><i class="fab fa-github"></i></a></li>
-					<li className="icon" id="medium"><a href="https://medium.com/@heatem_81309"><i class="fab fa-medium-m"></i></a></li>
+					<li className="icon" id="linkedIn"><a href="https://www.linkedin.com/in/heatherem/"><i className="fab fa-linkedin-in"></i></a></li>
+					<li className="icon" id="gitHub"><a href="https://github.com/heatem"><i className="fab fa-github"></i></a></li>
+					<li className="icon" id="medium"><a href="https://medium.com/@heatem_81309"><i className="fab fa-medium-m"></i></a></li>
 				</ul>
 			</div>
 		)
@@ -35,15 +34,13 @@ class Blurb extends React.Component {
 		return (
 			<div className="blurb">
 				<p>
-					I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community. Check out my <a id="resume" href="#">resume</a>.
+					I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community. Check out my <a id="resume" href="./assets/HMasonResume100618.pdf">resume</a>.
 				</p>
 			</div>
 		)
 	}
 }
 
-// Cards
-// should have a title, text, room for an icon/image, and optional app store link
 class Card extends React.Component {
 	constructor() {
 		super();
@@ -69,7 +66,6 @@ class Card extends React.Component {
 					description: projects[project].description,
 					thumb: projects[project].thumb,
 					appstore: projects[project].appstore
-
 				});
 			}
 			this.setState({
@@ -83,14 +79,14 @@ class Card extends React.Component {
 			<div>
 				{this.state.projects.map((project) => {
 					return (
-						<div className="card">
-							<li key={project.id}>
+						<div className="card" key={project.id}>
+							<li>
 								<div className="cardTitle">
 									<h2>{project.title}</h2>
 								</div>
 								<p>{project.description}</p>
-								<img className="thumb" src={project.thumb}></img>
-								<img className="app-store" src={project.appstore}></img>
+								<img className="thumb" src={project.thumb} alt=""></img>
+								<a href={project.appstore}><img className="app-store" src={appStoreIcon} alt={"App Store link to " + project.title}></img></a>
 							</li>
 						</div>
 					);
@@ -100,9 +96,6 @@ class Card extends React.Component {
 	}
 }
 
-// TODO: last card should be a contact card
-
-// TODO: Add cards to Cards section
 class Cards extends React.Component {
 	render() {
 		return (
@@ -114,12 +107,6 @@ class Cards extends React.Component {
 		);
 	}
 }
-
-// Contact Button
-// TODO: Create a contact button that appears when the contact card is not visible
-
-// Resume
-// TODO: Add resume
 
 class Footer extends React.Component {
 	render() {
