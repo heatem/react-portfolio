@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import firebase from "./firebase.js";
 import "./index.css";
 import appStoreIcon from "./assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg";
+import resume from "./assets/HMasonResume100618.pdf";
 
 class Heather extends React.Component {
 	render() {
@@ -20,9 +21,9 @@ class Socials extends React.Component {
 		return (
 			<div>
 				<ul className="icons">
-					<li className="icon" id="linkedIn"><a href="https://www.linkedin.com/in/heatherem/"><i className="fab fa-linkedin-in"></i></a></li>
-					<li className="icon" id="gitHub"><a href="https://github.com/heatem"><i className="fab fa-github"></i></a></li>
-					<li className="icon" id="medium"><a href="https://medium.com/@heatem_81309"><i className="fab fa-medium-m"></i></a></li>
+					<li className="icon" id="linkedIn"><a href="https://www.linkedin.com/in/heatherem/" target="_blank"><i className="fab fa-linkedin-in"></i></a></li>
+					<li className="icon" id="gitHub"><a href="https://github.com/heatem" target="_blank"><i className="fab fa-github"></i></a></li>
+					<li className="icon" id="medium"><a href="https://medium.com/@heatem_81309" target="_blank"><i className="fab fa-medium-m"></i></a></li>
 				</ul>
 			</div>
 		)
@@ -34,7 +35,7 @@ class Blurb extends React.Component {
 		return (
 			<div className="blurb">
 				<p>
-					I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community. Check out my <a id="resume" href="./assets/HMasonResume100618.pdf">resume</a>.
+					I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community. Check out my <a id="resume" href={resume} download target="_blank">resume</a>.
 				</p>
 			</div>
 		)
@@ -86,7 +87,7 @@ class Card extends React.Component {
 								</div>
 								<p>{project.description}</p>
 								<img className="thumb" src={project.thumb} alt=""></img>
-								<a href={project.appstore}><img className="app-store" src={appStoreIcon} alt={"App Store link to " + project.title}></img></a>
+								<a href={project.appstore} target="_blank"><img className="app-store" src={appStoreIcon} alt={"App Store link to " + project.title}></img></a>
 							</li>
 						</div>
 					);
