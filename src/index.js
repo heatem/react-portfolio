@@ -87,7 +87,7 @@ class Card extends React.Component {
 								</div>
 								<p>{project.description}</p>
 								<img className="thumb" src={project.thumb} alt=""></img>
-								<a href={project.appstore} target="_blank"><img className="app-store" src={appStoreIcon} alt={"App Store link to " + project.title} rel="noopener"></img></a>
+								<a href={project.appstore} target="_blank" rel="noopener"><img className="app-store" src={appStoreIcon} alt={"App Store link to " + project.title}></img></a>
 							</li>
 						</div>
 					);
