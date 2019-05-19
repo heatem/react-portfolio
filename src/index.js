@@ -21,9 +21,9 @@ class Socials extends React.Component {
 		return (
 			<div>
 				<ul className="icons">
-					<li className="icon" id="linkedIn"><a href="https://www.linkedin.com/in/heatherem/" target="_blank"><i className="fab fa-linkedin-in"></i></a></li>
-					<li className="icon" id="gitHub"><a href="https://github.com/heatem" target="_blank"><i className="fab fa-github"></i></a></li>
-					<li className="icon" id="medium"><a href="https://medium.com/@heatem_81309" target="_blank"><i className="fab fa-medium-m"></i></a></li>
+					<li className="icon" id="linkedIn"><a href="https://www.linkedin.com/in/heatherem/" target="_blank" aria-label="LinkedIn icon"><i className="fab fa-linkedin-in"></i></a></li>
+					<li className="icon" id="gitHub"><a href="https://github.com/heatem" target="_blank" aria-label="GitHub icon"><i className="fab fa-github"></i></a></li>
+					<li className="icon" id="medium"><a href="https://medium.com/@heatem_81309" target="_blank" aria-label="Medium icon"><i className="fab fa-medium-m"></i></a></li>
 				</ul>
 			</div>
 		)
@@ -35,7 +35,7 @@ class Blurb extends React.Component {
 		return (
 			<div className="blurb">
 				<p>
-					I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community. Check out my <a id="resume" href={resume} download target="_blank">resume</a>.
+					I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community. Check out my <a id="resume" href={resume} download target="_blank"  aria-label="resume download link">resume</a>.
 				</p>
 			</div>
 		)
