@@ -21,9 +21,9 @@ class Socials extends React.Component {
 		return (
 			<div>
 				<ul className="icons">
-					<li><a href="https://www.linkedin.com/in/heatherem/" target="_blank" aria-label="LinkedIn icon"><i className="fab fa-linkedin-in"></i></a></li>
-					<li><a href="https://github.com/heatem" target="_blank" aria-label="GitHub icon"><i className="fab fa-github"></i></a></li>
-					<li><a href="https://medium.com/@heatem_81309" target="_blank" aria-label="Medium icon"><i className="fab fa-medium-m"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/heatherem/" target="_blank" aria-label="LinkedIn icon" rel="noopener"><i className="fab fa-linkedin-in"></i></a></li>
+					<li><a href="https://github.com/heatem" target="_blank" aria-label="GitHub icon"rel="noopener"><i className="fab fa-github"></i></a></li>
+					<li><a href="https://medium.com/@heatem_81309" target="_blank" aria-label="Medium icon" rel="noopener"><i className="fab fa-medium-m"></i></a></li>
 				</ul>
 			</div>
 		)
@@ -35,7 +35,7 @@ class Blurb extends React.Component {
 		return (
 			<div className="blurb">
 				<p>
-					I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community. Check out my <a id="resume" href={resume} download target="_blank"  aria-label="resume download">resume</a>.
+					I am an iOS app developer with a background in quality assurance, currently programming in Swift. I value opportunities to grow and refine my skills as a mobile engineer while contributing to my local and global community. Check out my <a id="resume" href={resume} download target="_blank"  aria-label="resume download" rel="noopener">resume</a>.
 				</p>
 			</div>
 		)
@@ -87,7 +87,7 @@ class Card extends React.Component {
 								</div>
 								<p>{project.description}</p>
 								<img className="thumb" src={project.thumb} alt=""></img>
-								<a href={project.appstore} target="_blank"><img className="app-store" src={appStoreIcon} alt={"App Store link to " + project.title}></img></a>
+								<a href={project.appstore} target="_blank"><img className="app-store" src={appStoreIcon} alt={"App Store link to " + project.title} rel="noopener"></img></a>
 							</li>
 						</div>
 					);
