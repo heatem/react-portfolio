@@ -53,7 +53,6 @@ ul, .icons {
 	margin-top: -1.5em;
 	padding: 0;
 	text-align: center;
-	display: inline;
 }
 
 .icons > li {
@@ -71,7 +70,7 @@ ul, .icons {
 	width: 46px;
 }
 
-.icon:hover {
+.icons > li:hover {
 	background-color: #D8D8D8;
 	border-color: #E2711D;
 	color: #E2711D;
